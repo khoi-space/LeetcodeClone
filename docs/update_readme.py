@@ -1,6 +1,13 @@
 import re
+from pathlib import Path
 
-def add_problem_entry(md_filepath: str) -> bool:
+
+DOCS_DIR = Path(__file__).resolve().parent
+README_PATH = DOCS_DIR / "README.md"
+
+
+def add_problem_entry(md_filepath: Path) -> bool:
+    md_filepath = Path(md_filepath)
     difficulties = {
         "easy": "## 🟢Easy",
         "medium": "## 🟡Medium",
@@ -52,8 +59,8 @@ def add_problem_entry(md_filepath: str) -> bool:
 
         entry_lines = [
             f"* {name} [{number_str}]",
-            f"    * [C++](src/cpp/{number_str}.cpp)",
-            f"    * [Python](src/py/{number_str}.py)",
+            f"    * [C++](../src/cpp/{number_str}.cpp)",
+            f"    * [Python](../src/py/{number_str}.py)",
             "",
         ]
 
@@ -78,11 +85,10 @@ def add_problem_entry(md_filepath: str) -> bool:
         return False
 
 
-def update_problem_count(md_filepath: str):
-    """
-    Use to update numbers of my solved Leetcode problems
-    """
-    link_pattern = re.compile(r'src/(?:[^/]+/)?(\d+)\.[^\s)]+', re.IGNORECASE)
+def update_problem_count(md_filepath: Path):
+    """Update the total solved problems count based on README links."""
+    md_filepath = Path(md_filepath)
+    link_pattern = re.compile(r'(?:\./|\.\./)*src/(?:[^/]+/)?(\d+)\.[^\s)]+', re.IGNORECASE)
 
     placeholder_pattern = re.compile(r'(\s*)(\d+)(\s*)', re.DOTALL)
 
@@ -119,7 +125,7 @@ def update_problem_count(md_filepath: str):
 
 
 def main():
-    markdown_file_path = "README.md"
+    markdown_file_path = README_PATH
     choice = input("Add new problem entry? (y/n): ").strip().lower()
     if choice == "y":
         add_problem_entry(markdown_file_path)
