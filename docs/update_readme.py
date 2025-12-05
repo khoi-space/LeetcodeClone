@@ -1,4 +1,5 @@
 import re
+import unicodedata
 from pathlib import Path
 
 
@@ -57,8 +58,15 @@ def add_problem_entry(md_filepath: Path) -> bool:
             print(f"Alert: Problem {number_str} already listed")
             return False
 
+        slug = _slugify(name)
+        if not slug:
+            print("Error: Unable to derive LeetCode slug from problem name")
+            return False
+
+        leetcode_url = f"https://leetcode.com/problems/{slug}/"
+
         entry_lines = [
-            f"* {name} [{number_str}]",
+            f"* {name} [[{number_str}]({leetcode_url})]",
             f"    * [C++](../src/cpp/{number_str}.cpp)",
             f"    * [Python](../src/py/{number_str}.py)",
             "",
@@ -83,6 +91,14 @@ def add_problem_entry(md_filepath: Path) -> bool:
     except Exception as e:
         print(f"Error: {e}")
         return False
+
+
+def _slugify(title: str) -> str:
+    """Return a LeetCode-friendly slug derived from the problem title."""
+    normalized = unicodedata.normalize("NFKD", title)
+    ascii_only = normalized.encode("ascii", "ignore").decode().lower()
+    slug = re.sub(r"[^a-z0-9]+", "-", ascii_only).strip("-")
+    return slug
 
 
 def update_problem_count(md_filepath: Path):
