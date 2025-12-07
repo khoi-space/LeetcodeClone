@@ -19,18 +19,12 @@
     * [C++](../src/cpp/1523.cpp)
     * [Python](../src/py/1523.py)
     * [Java](../src/java/1523.java)
-    * [C++](../src/cpp/1523.cpp)
 
 ## 🟡Medium
 * Add Two Numbers [[2](https://leetcode.com/problems/add-two-numbers/)]
     * [C++](../src/cpp/2.cpp)
 * Longest Substring Without Repeating Characters [[3](https://leetcode.com/problems/longest-substring-without-repeating-characters/)]
     * [C++](../src/cpp/3.cpp)
-<!--
-* Longest Palindromic Substring [[5]]
-    * [C++](../src/cpp/5.cpp)
-    * [Python](../src/py/5.py)
--->
 * Count Collisions on a Road [[2211](https://leetcode.com/problems/count-collisions-on-a-road/)]
     * [C++](../src/cpp/2211.cpp)
 * Zigzag Conversion [[6](https://leetcode.com/problems/zigzag-conversion/)]
