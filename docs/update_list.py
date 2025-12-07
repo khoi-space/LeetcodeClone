@@ -5,7 +5,7 @@ from pathlib import Path
 
 DOCS_DIR = Path(__file__).resolve().parent
 README_PATH = DOCS_DIR / "README.md"
-
+LIST_PATH = DOCS_DIR / "PROBLEM_LIST.md"
 
 def add_problem_entry(md_filepath: Path) -> bool:
     md_filepath = Path(md_filepath)
@@ -71,7 +71,7 @@ def add_problem_entry(md_filepath: Path) -> bool:
             print("Alert: Language must be cpp, python, java, or all")
             return False
 
-        entry_lines = [f"* {name} [[{leetcode_url}]({leetcode_url})]"]
+        entry_lines = [f"* [{number_str}] {name} [[{leetcode_url}]({leetcode_url})]"]
         if lang_input == "cpp" or lang_input == "all":
             entry_lines.append(f"    * [C++](../src/cpp/{number_str}.cpp)")
         if lang_input == "python" or lang_input == "all":
@@ -149,11 +149,11 @@ def update_problem_count(md_filepath: Path):
 
 
 def main():
-    markdown_file_path = README_PATH
+    markdown_file_path = LIST_PATH
     choice = input("Add new problem entry? (y/n): ").strip().lower()
     if choice == "y":
         add_problem_entry(markdown_file_path)
-        # update_problem_count(markdown_file_path)
+        update_problem_count(markdown_file_path)
     else:
         lang_choice = input("Add new language for a problem? (y/n): ").strip().lower()
         if lang_choice == "y":
@@ -172,39 +172,39 @@ def main():
                     lines = f.read().splitlines()
                 identifier = f"[{number_str}]"
                 entry_idx = None
+                # Find the problem entry line (should start with '* [number]')
                 for i, line in enumerate(lines):
-                    if identifier in line:
+                    if line.strip().startswith(f"* [{number_str}]"):
                         entry_idx = i
                         break
                 if entry_idx is None:
                     print(f"Alert: Problem {number_str} not found")
                     return
-                # Prepare language link
+                # Prepare language link (4 spaces indent)
                 lang_map = {
                     "cpp": f"    * [C++](../src/cpp/{number_str}.cpp)",
                     "python": f"    * [Python](../src/py/{number_str}.py)",
                     "java": f"    * [Java](../src/java/{number_str}.java)"
                 }
                 lang_line = lang_map[lang_input]
-                # Identify the entry region for the problem
+                # Find the region of language links (lines after entry_idx, indented)
                 entry_end = entry_idx + 1
-                while entry_end < len(lines) and (lines[entry_end].startswith("    * ") or not lines[entry_end].strip()):
+                while entry_end < len(lines) and (lines[entry_end].startswith("    * ") or lines[entry_end].strip() == ""):
                     entry_end += 1
-                # Check for duplicates in the entry region
+                # Check for duplicates in the entry region (ignore whitespace)
                 found = False
                 lang_line_normalized = lang_line.replace(' ', '').lower()
                 for j in range(entry_idx+1, entry_end):
                     line_j = lines[j].replace(' ', '').lower()
-                    # Check both normal and commented-out links
                     if line_j == lang_line_normalized or line_j == f'<!--{lang_line_normalized}-->':
                         found = True
                         break
                 if found:
                     print(f"Alert: {lang_input} link already exists for problem {number_str}")
                     return
-                # Add the language line after the entry, before the blank line if present
+                # Insert the language line before the first blank line or at the end of the block
                 insert_idx = entry_end
-                if insert_idx > entry_idx+1 and not lines[insert_idx-1].strip():
+                if insert_idx > entry_idx+1 and lines[insert_idx-1].strip() == "":
                     insert_idx -= 1
                 lines.insert(insert_idx, lang_line)
                 with open(markdown_file_path, "w", encoding="utf-8") as f:
