@@ -162,7 +162,8 @@ def add_problem_entry(md_filepath: Path) -> bool:
             code_path = (workspace_root / rel_path).resolve()
             if not code_path.exists():
                 code_path.parent.mkdir(parents=True, exist_ok=True)
-                code_path.touch()
+                with open(code_path, "w", encoding="utf-8") as fcode:
+                    fcode.write('#include "solution.h"\n#include "test.h"\nusing namespace std;\n')
                 file_created = True
 
         # Thêm dấu * nếu file vừa được tạo
