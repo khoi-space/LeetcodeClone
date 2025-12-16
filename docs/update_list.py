@@ -178,9 +178,9 @@ def add_problem_entry(md_filepath: Path) -> bool:
 #include "global.h"
 using namespace std;
 /**
-* Problem {}: {}
-* @input: 
-* @output: 
+ * Problem {}: {}
+ * @input: 
+ * @output: 
 */
 
 

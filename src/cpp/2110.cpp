@@ -9,6 +9,7 @@ using namespace std;
  * @explain: a smooth descent period of a stock if prices[i-1] - prices[i] == 1
  */
 long long getDescentPeriods(vector<int>& prices) {
+    
     int prev_smth = 0;
     long long sum = prices.size();
     for (int i = 1; i < (int)prices.size(); ++i) {
