@@ -78,18 +78,30 @@ int main(int argc, char* argv[]) {
         test162();
     #elif TEST_TO_RUN == 238
         test238();
+    #elif TEST_TO_RUN == 283
+        test283();
     #elif TEST_TO_RUN == 334
         test334();
     #elif TEST_TO_RUN == 345
         test345();
+    #elif TEST_TO_RUN == 392
+        test392();
+    #elif TEST_TO_RUN == 443
+        test443();
     #elif TEST_TO_RUN == 605
         test605();
+    #elif TEST_TO_RUN == 643
+        test643();
+    #elif TEST_TO_RUN == 944
+        test944();
     #elif TEST_TO_RUN == 1071
         test1071();
     #elif TEST_TO_RUN == 1431
         test1431();
     #elif TEST_TO_RUN == 1523
         test1523();
+    #elif TEST_TO_RUN == 1679
+        test1679();
     #elif TEST_TO_RUN == 1768
         test1768();
     #elif TEST_TO_RUN == 1925

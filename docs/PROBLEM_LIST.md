@@ -1,5 +1,5 @@
 # LIST OF PROBLEMS
-**Total solved problems: 41**
+**Total solved problems: 47**
 ## 🟢Easy
 * [1] Two Sum [[https://leetcode.com/problems/two-sum/](https://leetcode.com/problems/two-sum/)]
     * [C++](../src/cpp/1.cpp)
@@ -17,10 +17,18 @@
     * [C++](../src/cpp/27.cpp)
 * [67] Add Binary [[https://leetcode.com/problems/add-binary/](https://leetcode.com/problems/add-binary/)]
     * [C++](../src/cpp/67.cpp)
+* [283] Move Zeroes [[https://leetcode.com/problems/move-zeroes/](https://leetcode.com/problems/move-zeroes/)]
+    * [C++](../src/cpp/283.cpp)
 * [345] Reverse Vowels of a String [[https://leetcode.com/problems/reverse-vowels-of-a-string/](https://leetcode.com/problems/reverse-vowels-of-a-string/)]
     * [C++](../src/cpp/345.cpp)
+* [392] Is Subsequence [[https://leetcode.com/problems/is-subsequence/](https://leetcode.com/problems/is-subsequence/)]
+    * [C++](../src/cpp/392.cpp)
 * [605] Can Place Flowers [[https://leetcode.com/problems/can-place-flowers/](https://leetcode.com/problems/can-place-flowers/)]
     * [C++](../src/cpp/605.cpp)
+* [643] Maximum Average Subarray I [[https://leetcode.com/problems/maximum-average-subarray-i/](https://leetcode.com/problems/maximum-average-subarray-i/)]
+    * [C++](../src/cpp/643.cpp)
+* [944] Delete Columns to Make Sorted [[https://leetcode.com/problems/delete-columns-to-make-sorted/](https://leetcode.com/problems/delete-columns-to-make-sorted/)]
+    * [C++](../src/cpp/944.cpp)
 * [1071] Greatest Common Divisor of Strings [[https://leetcode.com/problems/greatest-common-divisor-of-strings/](https://leetcode.com/problems/greatest-common-divisor-of-strings/)]
     * [C++](../src/cpp/1071.cpp)
 * [1431] Kids With the Greatest Number of Candies [[https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/](https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/)]
@@ -75,6 +83,10 @@
     * [C++](../src/cpp/238.cpp)
 * [334] Increasing Triplet Subsequence [[https://leetcode.com/problems/increasing-triplet-subsequence/](https://leetcode.com/problems/increasing-triplet-subsequence/)]
     * [C++](../src/cpp/334.cpp)
+* [443] String Compression [[https://leetcode.com/problems/string-compression/](https://leetcode.com/problems/string-compression/)]
+    * [C++](../src/cpp/443.cpp)
+* [1679] Max Number of K-Sum Pairs [[https://leetcode.com/problems/max-number-of-k-sum-pairs/](https://leetcode.com/problems/max-number-of-k-sum-pairs/)]
+    * [C++](../src/cpp/1679.cpp)
 * [2110] Number of Smooth Descent Periods of a Stock [[https://leetcode.com/problems/number-of-smooth-descent-periods-of-a-stock/](https://leetcode.com/problems/number-of-smooth-descent-periods-of-a-stock/)]
     * [C++](../src/cpp/2110.cpp)
 * [2211] Count Collisions on a Road [[https://leetcode.com/problems/count-collisions-on-a-road/](https://leetcode.com/problems/count-collisions-on-a-road/)]

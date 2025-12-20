@@ -179,7 +179,8 @@ def add_problem_entry(md_filepath: Path) -> bool:
 using namespace std;
 
 //#define DEBUG
-#define APR 1
+#define MAX_APR 1
+#define APR     1
 
 /**
  * Problem {}: {}
@@ -189,12 +190,14 @@ using namespace std;
 
 
 void test{}() {{
-    cout << "Approach " << APR << endl;
+    cout << "Approach " << APR << " / " << MAX_APR << endl;
 
     struct Case {{
+
     }};
 
     vector<Case> cases = {{
+        
     }};
 
     for (int i = 0; i < (int)cases.size(); ++i) {{
@@ -205,9 +208,8 @@ void test{}() {{
 }}
 '''.format(number_str, name, number_str)
 )
-                    print(f"Created code file: {code_path}")
-                file_created = True
-
+        print(f"Created code file: {code_path}")
+        file_created = True
         number_display = f"{number_str}" if file_created else number_str
         # Prepare the entry lines for the markdown file (problem and code link)
         entry_lines = [f"* [{number_display}] {name} [[{leetcode_url}]({leetcode_url})]", code_link]
